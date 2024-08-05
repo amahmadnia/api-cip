@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email Registration</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #9d8a01;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+            color: #333;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #a88d00;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .footer {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #e9e9e9;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1 dir="rtl">به شرکت رزرو پذیرش CIP خوش آمدید!</h1>
+    </div>
+    <div class="content">
+        <p dir="rtl">سلام {{ user.username }}،</p>
+        <p dir="rtl">ما با خوشحالی اعلام می‌کنیم که حساب شما با موفقیت ایجاد شده است.</p>
+        <p dir="rtl">لطفا برای ورود به حساب کاربری خود روی دکمه زیر کلیک کنید:</p>
+        <a href="https://yourwebsite.com/login" class="button" dir="rtl">ورود به حساب</a>
+        <p dir="rtl">با تشکر،<br>تیم ما cip</p>
+    </div>
+    <div class="footer">
+        <p dir="rtl">این ایمیل به صورت خودکار ارسال شده است. لطفا به این پیام پاسخ ندهید.</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>رزرو رد شد</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #e74c3c;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+            color: #333;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .footer {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #e9e9e9;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1 dir="rtl">رزور شما رد شد</h1>
+    </div>
+    <div class="content">
+        <p dir="rtl">سلام {{ user.username }}،</p>
+        <p dir="rtl">متاسفانه باید خدمت شما اعلام کنم که رزرو شما توسط مدیریت لغو شده است</p>
+        <p dir="rtl">لطفاً برای اطلاعات بیشتر با پشتیبانی تماس بگیرید.</p>
+        <p dir="rtl">با تشکر،<br> cip تیم ما</p>
+    </div>
+    <div class="footer">
+        <p dir="rtl">این ایمیل به صورت خودکار ارسال شده است. لطفا به این پیام پاسخ ندهید.</p>
+    </div>
+</div>
+</body>
+</html>

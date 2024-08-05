@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Calibri;
+            margin: 20px;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #a88d00;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .flight-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .flight-section h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #a88d00;
+            border-bottom: 2px solid #a88d00;
+            padding-bottom: 5px;
+        }
+
+        .flight-info {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .flight-info p {
+            margin: 5px 0;
+        }
+
+        .summary {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .summary p {
+            margin: 5px 0;
+            font-size: 15px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+        }
+
+        th {
+            background-color: #a88d00;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .no-passengers {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .caravan-name {
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            padding: 10px;
+            background-color: #eef;
+            border: 1px solid #a88d00;
+            border-radius: 5px;
+            color: #a88d00;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Flight Report</h1>
+    <p>Date: {{ date }}</p>
+</div>
+
+{% for flight in flights %}
+    <div class="flight-section">
+        <h2>Flight: {{ flight.schedule.flight.name }} - {{ flight.schedule.flight_number }}</h2>
+        <div class="flight-info">
+            <p><strong>Departure Time:</strong> {{ flight.schedule.departure_time }}</p>
+            <p><strong>Arrival Time:</strong> {{ flight.schedule.arrival_time }}</p>
+            <p><strong>Flight Type:</strong> {{ flight.schedule.get_flight_type_display }}</p>
+        </div>
+
+        <div class="summary">
+            <p><strong>Adults:</strong> {{ flight.adults_count }}</p>
+            <p><strong>Infants:</strong> {{ flight.infants_count }}</p>
+            <p><strong>Total Passengers:</strong> {{ flight.total_passengers }}</p>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Passport Number</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% with current_caravan=None %}
+                {% for reservation in flight.reservations %}
+                    {% if current_caravan != reservation.user.convoyName %}
+                        {% if not forloop.first %}
+                            <tr>
+                                <td colspan="3" class="no-passengers">--- End of {{ current_caravan }} ---</td>
+                            </tr>
+                        {% endif %}
+                        <tr>
+                            <td colspan="3" class="caravan-name">Caravan Name: {{ reservation.user.convoyName }}</td>
+                        </tr>
+                        {% with current_caravan=reservation.user.convoyName %}
+                        {% endwith %}
+                    {% endif %}
+                    {% for passenger in reservation.passengers.all %}
+                        <tr>
+                            <td>{{ passenger.first_name }}</td>
+                            <td>{{ passenger.last_name }}</td>
+                            <td>{{ passenger.passport_number }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+                {% if current_caravan %}
+                    <tr>
+                        <td colspan="3" class="no-passengers">--- End of {{ current_caravan }} ---</td>
+                    </tr>
+                {% endif %}
+            {% endwith %}
+            </tbody>
+        </table>
+    </div>
+{% endfor %}
+
+<div class="footer">
+    <p>Total Flights: {{ total_flights }}</p>
+    <p>Total Passengers: {{ total_passengers }}</p>
+</div>
+</body>
+</html>

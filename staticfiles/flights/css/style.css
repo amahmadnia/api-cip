@@ -1,0 +1,111 @@
+body {
+    font-family: Calibri;
+    margin: 20px;
+    padding: 0;
+    color: #333;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #007bff;
+}
+
+.header p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.flight-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.flight-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.flight-info {
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.flight-info p {
+    margin: 5px 0;
+}
+
+.summary {
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.summary p {
+    margin: 5px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.no-passengers {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+.footer {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+.caravan-name {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #eef;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    color: #007bff;
+}
